@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function ProfileScreen({ navigation }) {
   const handleLogout = () => {
-    // Simulação de logout: retorna ao login
+    // Simulação de logout
     navigation.replace('Login');
   };
 

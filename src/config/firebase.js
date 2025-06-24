@@ -1,4 +1,3 @@
-// config/firebase.js
 import { initializeApp, getApps } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
@@ -11,7 +10,6 @@ const firebaseConfig = {
   appId: "1:864950016116:web:7e51864b1201f16490d921"
 };
 
-// Verifica se já existe uma instância do Firebase para evitar o erro
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
 export const db = getFirestore(app);

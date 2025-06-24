@@ -1,4 +1,3 @@
-// src/screens/products/EditProductScreen.js
 import React, { useState, useContext } from 'react';
 import {
   View,
@@ -96,7 +95,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.05,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
-    elevation: 2, // sombra no Android
+    elevation: 2, 
   },
   textArea: {
     height: 100,
@@ -111,7 +110,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 6,
-    elevation: 3, // sombra no Android
+    elevation: 3, 
   },
   buttonText: {
     color: '#fff',

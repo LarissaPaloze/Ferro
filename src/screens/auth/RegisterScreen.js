@@ -6,7 +6,7 @@ export default function RegisterScreen({ navigation }) {
   const [password, setPassword] = useState('');
 
   const handleRegister = () => {
-    // Simulação de registro: navega para login
+    // Simulação de registro
     navigation.replace('Login');
   };
 
