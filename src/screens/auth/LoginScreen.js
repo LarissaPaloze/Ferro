@@ -1,41 +1,60 @@
-
-import React, { useState, useContext, useEffect } from 'react';
-import { View, TextInput, Button, Alert, ActivityIndicator, StyleSheet, Text } from 'react-native';
-import { AuthContext } from '../../contexts/AuthContext';
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function LoginScreen({ navigation }) {
-  const { login, user, loading } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  useEffect(() => {
-    if (!loading && user) navigation.replace('ListProducts');
-  }, [user, loading]);
-
-  const handleLogin = async () => {
-    if (!email || !password) {
-      Alert.alert('Erro', 'E-mail e senha são obrigatórios.');
-      return;
-    }
-    await login(email, password);
+  const handleLogin = () => {
+    // Simulação de login
+    navigation.replace('ListProducts');
   };
-
-  if (loading) return <ActivityIndicator style={{ flex: 1 }} size="large" />;
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
-      <TextInput placeholder="E-mail" value={email} onChangeText={setEmail} keyboardType="email-address" autoCapitalize="none" style={styles.input} />
-      <TextInput placeholder="Senha" value={password} onChangeText={setPassword} secureTextEntry style={styles.input} />
-      <Button title="Entrar" onPress={handleLogin} />
-      <Text style={styles.link} onPress={() => navigation.navigate('Register')}>Não tem conta? Registre-se</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="E-mail"
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+        autoCapitalize="none"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Senha"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+      />
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Entrar</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+        <Text style={styles.link}>Não tem conta? Cadastre-se</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16, justifyContent: 'center' },
-  input: { borderBottomWidth: 1, marginBottom: 12, padding: 8 },
-  link: { marginTop: 16, color: 'blue', textAlign: 'center' },
-  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 24, textAlign: 'center' }
+  container: { flex: 1, justifyContent: 'center', padding: 20 },
+  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    padding: 10,
+    marginBottom: 15,
+  },
+  button: {
+    backgroundColor: '#007AFF',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  buttonText: { color: '#fff', fontSize: 16 },
+  link: { color: '#007AFF', textAlign: 'center', marginTop: 10 },
 });
