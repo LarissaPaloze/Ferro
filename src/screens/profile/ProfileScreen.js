@@ -8,25 +8,25 @@ export default function ProfileScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>👤 Meu Perfil</Text>
+      <Text style={styles.title}> Meu Perfil</Text>
       <Text style={styles.subtitle}>Usuário Simulado</Text>
 
       <View style={styles.card}>
         <View style={styles.infoRow}>
-          <Text style={styles.label}>📧 E-mail</Text>
+          <Text style={styles.label}> E-mail</Text>
           <Text style={styles.value}>usuario@ficticio.com</Text>
         </View>
 
         <View style={styles.divider} />
 
         <View style={styles.infoRow}>
-          <Text style={styles.label}>🆔 UID</Text>
+          <Text style={styles.label}> UID</Text>
           <Text style={styles.value}>USUARIOTESTE_UID</Text>
         </View>
       </View>
 
       <TouchableOpacity style={styles.button} onPress={handleLogout}>
-        <Text style={styles.buttonText}>🚪 Sair da Conta</Text>
+        <Text style={styles.buttonText}> Sair da Conta</Text>
       </TouchableOpacity>
     </View>
   );
